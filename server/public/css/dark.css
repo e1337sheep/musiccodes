@@ -9,3 +9,17 @@ a{
 a:visited{
     color: #88B
 }
+input{
+    background: #555;
+    border: 1px solid #888;
+    color: #111;
+}
+button{
+    color: #555;
+}
+.nav-tabs li.active a{
+    background: #555;
+    color: #111;
+    font-weight: bold;
+    border-color: #555;
+}
