@@ -10,6 +10,9 @@ var extend = require('extend');
 var adapter = require('socket.io-redis');
 var process = require('process');
 
+//grt
+var https = require('https').Server(app);
+
 // MPM agent - default
 var mpmAgent = require('./lib/mpm-agent');
 
@@ -1227,3 +1230,4 @@ io.on('connection', function(socket){
 http.listen(3000, function(){
   console.log('listening on *:3000');
 });
+
