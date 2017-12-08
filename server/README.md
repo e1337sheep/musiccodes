@@ -5,17 +5,17 @@
 Build - no audio support.
 
 ```
-docker build . -t musiccodes
+docker build . -t muziccodes
 ```
 
 Run in background:
 ```
-docker run -d --restart=always -p 3000:3000 --name=musiccodes musiccodes
+docker run -d --restart=always -p 3000:3000 --name=muziccodes muziccodes
 ```
 
 foreground test:
 ```
-docker run -it --rm -p 3000:3000 --name=musiccodes musiccodes
+docker run -it --rm -p 3000:3000 --name=muziccodes muziccodes:latest
 ```
 
 ## Notes

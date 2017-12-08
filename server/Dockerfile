@@ -39,11 +39,11 @@ FROM node:6.11-alpine
 LABEL maintainer="chris.greenhalgh@nottingham.ac.uk"
 
 WORKDIR /root/
-##broke here
 COPY --from=0 /root/musiccodes/server/ .
 
 VOLUME /root/logs
 
 EXPOSE 3000
+EXPOSE 3030
 
 CMD ["node","server.js"]

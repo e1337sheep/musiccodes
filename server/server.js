@@ -1,3 +1,5 @@
+'use strict'
+
 console.log('starting musiccodes server...');
 
 var app = require('express')();
@@ -10,8 +12,16 @@ var extend = require('extend');
 var adapter = require('socket.io-redis');
 var process = require('process');
 
-//grt
-var https = require('https').Server(app);
+// grt: setup https object with SSL credentials
+let key = fs.readFileSync('/root/server.key')
+let cert = fs.readFileSync('/root/server.crt')
+
+let options = {
+	key: key,
+	cert: cert
+}
+let https = require('https').createServer(options, app);
+
 
 // MPM agent - default
 var mpmAgent = require('./lib/mpm-agent');
@@ -1227,7 +1237,20 @@ io.on('connection', function(socket){
   var client = new Client(socket);
 });
 
-http.listen(3000, function(){
-  console.log('listening on *:3000');
-});
+http.listen(3000, function(){ console.log('listening on *:3000'); });
+
+// grt: setup https object with SSL credentials
+let key = fs.readFileSync('/root/server.key')
+let cert = fs.readFileSync('/root/server.crt')
+
+let options = {
+	key: key,
+	cert: cert
+}
+let https = require('https').createServer(options, app);
+//grt
+https.listen(3030, ()=> console.log('https on 3030'));
+
+
+
 
